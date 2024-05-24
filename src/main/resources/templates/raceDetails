@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Verseny részletei</title>
+</head>
+<body>
+    <h1 th:text="${race.name} + ' részletei'"></h1>
+    <h2>Futók eredményei</h2>
+    <table border="1">
+        <tr>
+            <th>Név</th>
+            <th>Időeredmény</th>
+        </tr>
+        <tr th:each="result : ${results}">
+            <td th:text="${result.runner.name}"></td>
+            <td th:text="${result.time}"></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -17,13 +17,6 @@ public class DataLoader implements CommandLineRunner {
     private final RaceRepository raceRepository;
     private final ResultRepository resultRepository;
 
-    @Autowired
-    public DataLoader(RunnerRepository runnerRepository, RaceRepository raceRepository, ResultRepository resultRepository) {
-        this.runnerRepository = runnerRepository;
-        this.raceRepository = raceRepository;
-        this.resultRepository = resultRepository;
-    }
-
     @Override
     public void run(String... args) {
         // Create runners
