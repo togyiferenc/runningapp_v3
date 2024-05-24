@@ -16,7 +16,7 @@ public class Runner {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Name is mandatory")
+    @NotBlank(message = "Mandatory")
     private String name;
 
     @Min(0)

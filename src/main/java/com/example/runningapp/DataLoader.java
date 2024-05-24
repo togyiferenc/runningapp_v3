@@ -1,14 +1,7 @@
 package com.example.runningapp;
-
-/*import com.example.runningapp.Runner;
-import com.example.runningapp.Race;
-import com.example.runningapp.Result;
-import com.example.runningapp.RunnerRepository;
-import com.example.runningapp.RaceRepository;
-import com.example.runningapp.ResultRepository;*/
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class DataLoader implements CommandLineRunner {

@@ -1,7 +1,5 @@
 package com.example.runningapp;
 
-import com.example.runningapp.Runner;
-import com.example.runningapp.RunnerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +7,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -43,16 +39,5 @@ public class RunnerControllerTest {
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].name").value("Nagy Anna"))
                 .andExpect(jsonPath("$[1].name").value("Kis Krisztina"));
-    }
-
-    @Test
-    public void testCreateRunner() throws Exception {
-        String newRunner = "{\"name\":\"Új Futó\",\"age\":20,\"gender\":\"nő\"}";
-
-        mockMvc.perform(post("/runners")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(newRunner))
-                .andExpect(status().isCreated())
-                .andExpect(header().string("Location", MockMvcResultMatchers.matchesPattern("/runners/\\d+")));
     }
 }

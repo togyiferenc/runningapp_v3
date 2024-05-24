@@ -1,7 +1,6 @@
 package com.example.runningapp;
 
-import com.example.runningapp.Race;
-import com.example.runningapp.RaceRepository;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,30 +15,42 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class RaceControllerTest {
+public class ResultControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Autowired
+    private RunnerRepository runnerRepository;
+
+    @Autowired
     private RaceRepository raceRepository;
+
+    @Autowired
+    private ResultRepository resultRepository;
 
     @BeforeEach
     public void setUp() {
+        resultRepository.deleteAll();
+        runnerRepository.deleteAll();
         raceRepository.deleteAll();
-        Race race1 = new Race("Spar BP Maraton", 42);
-        Race race2 = new Race("Telekom Vivicitá", 21);
-        raceRepository.save(race1);
-        raceRepository.save(race2);
+
+        Runner runner = new Runner("Nagy Anna", 30, "nő");
+        Race race = new Race("Spar BP Maraton", 42);
+
+        runnerRepository.save(runner);
+        raceRepository.save(race);
+
+        Result result = new Result(runner, race, 240);
+        resultRepository.save(result);
     }
 
     @Test
-    public void testGetAllRaces() throws Exception {
-        mockMvc.perform(get("/races"))
+    public void testGetAllResults() throws Exception {
+        mockMvc.perform(get("/results"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$", hasSize(2)))
-                .andExpect(jsonPath("$[0].name").value("Spar BP Maraton"))
-                .andExpect(jsonPath("$[1].name").value("Telekom Vivicitá"));
+                .andExpect(jsonPath("$", hasSize(1)))
+                .andExpect(jsonPath("$[0].time").value(240));
     }
 }
