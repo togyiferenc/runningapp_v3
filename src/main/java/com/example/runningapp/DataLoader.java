@@ -5,24 +5,28 @@ import com.example.runningapp.Race;
 import com.example.runningapp.Result;
 import com.example.runningapp.RunnerRepository;
 import com.example.runningapp.RaceRepository;
-import com.example.runningapp.ResultRepository;
+import com.example.runningapp.ResultRepository;*/
 import org.springframework.beans.factory.annotation.Autowired;
-*/
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-   /*  @Autowired
     private final RunnerRepository runnerRepository;
     private final RaceRepository raceRepository;
     private final ResultRepository resultRepository;
-*/
+
+    @Autowired
+    public DataLoader(RunnerRepository runnerRepository, RaceRepository raceRepository, ResultRepository resultRepository) {
+        this.runnerRepository = runnerRepository;
+        this.raceRepository = raceRepository;
+        this.resultRepository = resultRepository;
+    }
+
     @Override
-    public void run(String... args) {
-        // Create runners
+    public void run(String... args) throws Exception {
+        // Create and save runners
         Runner runner1 = new Runner("Nagy Anna", 30, "nő");
         Runner runner2 = new Runner("Kis Krisztina", 25, "nő");
         Runner runner3 = new Runner("Nagy Árpád", 28, "férfi");
@@ -37,7 +41,7 @@ public class DataLoader implements CommandLineRunner {
         runnerRepository.save(runner5);
         runnerRepository.save(runner6);
 
-        // Create races
+        // Create and save races
         Race race1 = new Race("Spar BP Maraton", 42);
         Race race2 = new Race("Telekom Vivicitá", 21);
         Race race3 = new Race("UltraBalaton", 211);
@@ -48,7 +52,7 @@ public class DataLoader implements CommandLineRunner {
         raceRepository.save(race3);
         raceRepository.save(race4);
 
-        // Create results
+        // Create and save results
         Result result1 = new Result(runner1, race1, 240);
         Result result2 = new Result(runner2, race1, 250);
         Result result3 = new Result(runner3, race2, 120);

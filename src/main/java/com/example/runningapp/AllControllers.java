@@ -12,8 +12,6 @@ public class AllControllers {
     @Autowired
     private RunnerRepository runnerRepository;
 
-    @Autowired
-    private RaceRepository raceRepository;
 
     @Autowired
     private ResultRepository resultRepository;
