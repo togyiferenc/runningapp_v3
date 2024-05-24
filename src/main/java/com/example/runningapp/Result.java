@@ -1,5 +1,4 @@
-package com.example.runningapp.model;
-
+package com.example.runningapp;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

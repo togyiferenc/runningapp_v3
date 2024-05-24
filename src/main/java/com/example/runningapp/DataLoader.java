@@ -1,22 +1,25 @@
-package com.example.runningapp.config;
+package com.example.runningapp;
 
-import com.example.runningapp.model.Runner;
-import com.example.runningapp.model.Race;
-import com.example.runningapp.model.Result;
-import com.example.runningapp.repository.RunnerRepository;
-import com.example.runningapp.repository.RaceRepository;
-import com.example.runningapp.repository.ResultRepository;
+/*import com.example.runningapp.Runner;
+import com.example.runningapp.Race;
+import com.example.runningapp.Result;
+import com.example.runningapp.RunnerRepository;
+import com.example.runningapp.RaceRepository;
+import com.example.runningapp.ResultRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+*/
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
+   /*  @Autowired
     private final RunnerRepository runnerRepository;
     private final RaceRepository raceRepository;
     private final ResultRepository resultRepository;
-
+*/
     @Override
     public void run(String... args) {
         // Create runners

@@ -1,7 +1,7 @@
 package com.example.runningapp;
 
-import com.example.runningapp.model.Runner;
-import com.example.runningapp.repository.RunnerRepository;
+import com.example.runningapp.Runner;
+import com.example.runningapp.RunnerRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

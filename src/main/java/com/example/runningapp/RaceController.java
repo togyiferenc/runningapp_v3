@@ -1,7 +1,7 @@
-package com.example.runningapp.controller;
+package com.example.runningapp;
 
-import com.example.runningapp.model.Race;
-import com.example.runningapp.repository.RaceRepository;
+//import com.example.runningapp.Race;
+//import com.example.runningapp.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

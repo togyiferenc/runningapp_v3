@@ -1,6 +1,6 @@
-package com.example.runningapp.repository;
+package com.example.runningapp;
 
-import com.example.runningapp.model.Result;
+// import com.example.runningapp.Result;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
